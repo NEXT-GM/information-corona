@@ -60,10 +60,10 @@ export default {
       if (navigator.share) {
         try {
           await navigator.share({
-            text: 'Карта, данные и график распространения коронавируса (COVID-19) ',
+            text: 'Карта, данные и график распространения коронавируса (COVID-19) '
           });
           this.snackbar.text = 'Shared successfully.';
-          this.snackbar.show = true; 
+          this.snackbar.show = true;
         } catch (e) {
           // share cancelled
         }
