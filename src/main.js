@@ -3,7 +3,6 @@
 import Vue from 'vue';
 import { Icon } from 'leaflet';
 import App from './App.vue';
-import './registerServiceWorker';
 import vuetify from './plugins/vuetify';
 import './plugins/vue2-filters';
 import './plugins/vue2-perfect-scrollbar';

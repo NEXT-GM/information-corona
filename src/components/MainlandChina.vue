@@ -43,7 +43,7 @@ export default {
           strokeColor: '#fff',
           strokeWidth: 2
         },
-        colors: ['#FEAA00'],
+        colors: ['#FFFFFF'],
         title: {
           text: 'Подтвержденные случаи заболевания в материковом Китае',
           align: 'left'

@@ -53,7 +53,7 @@
             <v-icon>mdi-map-search</v-icon>
           </v-btn>
         </template>
-        <span>Search</span>
+        <span>Поиск</span>
       </v-tooltip>
       <v-tooltip left :dark="isDarkTheme">
         <template v-slot:activator="{ on }">
@@ -61,7 +61,7 @@
             <v-icon>mdi-theme-light-dark</v-icon>
           </v-btn>
         </template>
-        <span>Switch theme</span>
+        <span>Переключение темы</span>
       </v-tooltip>
       <v-tooltip bottom :dark="isDarkTheme"> </v-tooltip>
     </v-app-bar>
@@ -91,10 +91,7 @@
             >
             </perfect-scrollbar>
             <v-card v-else tile flat>
-              <v-card-title>
-                <v-icon large left>mdi-twitter</v-icon>
-                <span class="title font-weight-light">WHO Tweets</span>
-              </v-card-title>
+              <v-card-title> </v-card-title>
               <v-card-text>
                 <Tweets ref="tweets" :count="5" />
               </v-card-text>
@@ -122,7 +119,7 @@
             <FatalityRateBySex
               title="Коэффициент смертности по полу"
               :data="fatalityRate.bySex"
-              :colors="['#152C82', '#DB6395']"
+              :colors="['255, 255, 255', '255, 255, 255']"
             />
           </v-col>
         </v-row>
@@ -130,7 +127,7 @@
         <v-row>
           <v-col cols="12">
             <FatalityRateByComorbidity
-              title="Fatality Rate by Comorbidity"
+              title="Уровень смертности в зависимости от коморбидности"
               :data="fatalityRate.byComorbidity"
             />
           </v-col>
@@ -188,12 +185,12 @@
               v-else
             >
               <p class="text-center">
-                <span class="display-1">{{ selected['Country/Region'] }}</span>
+                <span class="display-1">{{ selected['Страна/регион'] }}</span>
                 <br />
-                <span class="title">Country Region</span>
+                <span class="title">Страна Регион</span>
               </p>
-              <p class="text-center" v-if="selected['Province/State']">
-                <span class="display-1">{{ selected['Province/State'] }}</span>
+              <p class="text-center" v-if="selected['Провинция/штат']">
+                <span class="display-1">{{ selected['Провинция/штат'] }}</span>
                 <br />
                 <span class="title">Провинция/Страна</span>
               </p>
@@ -232,7 +229,7 @@
     </v-content>
 
     <v-snackbar v-model="snackbar" bottom right :timeout="0">
-      An update is available
+      Обновление доступно
       <v-btn dark text @click="reload">Перезагрузить</v-btn>
     </v-snackbar>
 
@@ -306,7 +303,7 @@ export default {
     locations() {
       const data = [];
       this.cases.data.forEach(item => {
-        const idx = data.findIndex(i => i['Country/Region'] === item['Country/Region']);
+        const idx = data.findIndex(i => i['Страна/регион'] === item['Страна/регион']);
         const { confirmed } = item.dates[item.dates.length - 1];
         const { recovered } = item.dates[item.dates.length - 1];
         const { death } = item.dates[item.dates.length - 1];
@@ -317,7 +314,7 @@ export default {
             recovered,
             death
           };
-          delete obj['Province/State'];
+          delete obj['Провинция/штат'];
           delete obj.dates;
           data.push(obj);
         } else {
@@ -329,7 +326,7 @@ export default {
       return data.sort((a, b) => b.confirmed - a.confirmed);
     },
     mainlandChinaCases() {
-      return this.cases.data.filter(i => i['Country/Region'] === 'Mainland China');
+      return this.cases.data.filter(i => i['Страна/регион'] === 'Материковый Китай');
     }
   },
 

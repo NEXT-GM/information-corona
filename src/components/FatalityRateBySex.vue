@@ -60,7 +60,7 @@ export default {
             }
           }
         },
-        colors: ['#008FFB', '#DB6395'],
+        colors: ['#FFFFFF', '#FFFFFF'],
         legend: {
           position: 'top'
         }

@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>
         <span class="title font-weight-light">
-          <div class="headline">Search place</div>
+          <div class="headline">Место поиска</div>
         </span>
         <v-spacer></v-spacer>
         <v-btn icon @click="dialog = false">
@@ -14,7 +14,7 @@
         <v-text-field
           @keyup="change"
           v-model="search"
-          label="Type here..."
+          label="Введите здесь..."
           append-icon="mdi-magnify"
           clearable
         ></v-text-field>
@@ -26,15 +26,15 @@
           >
             <v-list-item-content>
               <v-list-item-title>
-                <span v-if="item['Province/State']">
-                  {{ item['Province/State'] }}
+                <span v-if="item['Провинция/штат']">
+                  {{ item['Провинция/штат'] }}
                 </span>
                 <span v-else>
-                  {{ item['Country/Region'] }}
+                  {{ item['Страна/регион'] }}
                 </span>
               </v-list-item-title>
-              <v-list-item-subtitle v-show="item['Province/State']">
-                {{ item['Country/Region'] }}
+              <v-list-item-subtitle v-show="item['Провинция/штат']">
+                {{ item['Страна/регион'] }}
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -64,7 +64,7 @@ export default {
 
       if (!value) return;
 
-      this.result = this.filterBy(this.data, $e.target.value, 'Country/Region', 'Province/State');
+      this.result = this.filterBy(this.data, $e.target.value, 'Страна/регион', 'Провинция/штат');
 
       if (!this.result.length) {
         this.resultText = 'Страна/регион или провинция/штат не найдены.';

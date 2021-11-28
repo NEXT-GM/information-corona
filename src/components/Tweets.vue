@@ -36,10 +36,6 @@
         </v-card-actions>
       </v-card>
     </div>
-
-    <v-btn v-if="$vuetify.breakpoint.smAndDown" text block @click="SET_TWEET_DIALOG(true)"
-      >View More Tweets</v-btn
-    >
   </div>
 </template>
 
@@ -58,9 +54,7 @@ export default {
   async mounted() {
     this.loading = true;
     const statuses = await API.getTweets({
-      count: this.count || 10,
-      screen_name: 'WHO',
-      tweet_mode: 'extended'
+      count: this.count || 10
     });
     this.items = statuses;
     this.maxId = statuses[statuses.length - 1].id;
@@ -73,10 +67,7 @@ export default {
       if (this.maxId) {
         this.loading = true;
         const statuses = await API.getTweets({
-          count: this.count || 10,
-          screen_name: 'WHO',
-          max_id: this.maxId,
-          tweet_mode: 'extended'
+          count: this.count || 10
         });
         statuses.splice(0, 1);
         this.items = [...this.items, ...statuses];

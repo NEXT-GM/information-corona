@@ -88,7 +88,7 @@ export default {
     isDarkTheme(val) {
       this.$refs.chart.updateOptions({
         tooltip: {
-          theme: val ? 'dark' : 'light'
+          theme: val ? 'Чёрный' : 'Белый'
         }
       });
     }

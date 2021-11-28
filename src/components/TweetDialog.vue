@@ -17,7 +17,9 @@
           </v-card-actions>
         </v-card>
 
-        <v-btn v-if="!loading && !endReached" text @click="loadMore" block>Load More</v-btn>
+        <v-btn v-if="!loading && !endReached" text @click="loadMore" block
+          >Загрузить Подробнее</v-btn
+        >
 
         <div v-if="loading">
           <v-card class="mb-2" outlined v-for="i in 10" :key="i">
@@ -65,7 +67,6 @@ export default {
       this.loading = true;
       const statuses = await API.getTweets({
         count: this.count || 10,
-        screen_name: 'WHO',
         tweet_mode: 'extended'
       });
       this.items = statuses;
@@ -79,7 +80,7 @@ export default {
         this.loading = true;
         const statuses = await API.getTweets({
           count: this.count || 10,
-          screen_name: 'WHO',
+
           max_id: this.maxId,
           tweet_mode: 'extended'
         });

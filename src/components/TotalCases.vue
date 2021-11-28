@@ -1,15 +1,15 @@
 <template>
   <v-row>
     <v-col cols="12" md="4" class="d-flex flex-column justify-center align-center">
-      <span :class="[count]"><ICountUp :endVal="infected"/></span>
+      <span :class="[count]"><ICountUp :endVal="infected" />261 636 136</span>
       <span :class="[title]">Заражённые</span>
     </v-col>
     <v-col cols="12" md="4" class="d-flex flex-column justify-center align-center">
-      <span :class="[count]"><ICountUp :endVal="recovered"/></span>
-      <span :class="[title]">Выздор</span>
+      <span :class="[count]"><ICountUp :endVal="recovered" />235680259</span>
+      <span :class="[title]">Выздоровело</span>
     </v-col>
     <v-col cols="12" md="4" class="d-flex flex-column justify-center align-center">
-      <span :class="[count]"><ICountUp :endVal="deaths"/></span>
+      <span :class="[count]"><ICountUp :endVal="deaths" /> 5 202 761</span>
       <span :class="[title]">Смерти</span>
     </v-col>
   </v-row>

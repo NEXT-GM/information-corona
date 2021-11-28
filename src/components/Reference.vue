@@ -28,7 +28,7 @@
             md="6"
             :class="[$vuetify.breakpoint.mdAndUp ? 'text-right' : 'text-center']"
           >
-            <a @click.prevent="share" class="white--text no-decoration">Share</a>
+            <a @click.prevent="share" class="white--text no-decoration">Поделиться</a>
           </v-col>
         </v-row>
       </v-card-text>
@@ -36,7 +36,7 @@
     <v-snackbar bottom v-model="snackbar.show">
       {{ snackbar.text }}
       <v-btn color="red" text @click="snackbar.show = false">
-        Close
+        Закрыть
       </v-btn>
     </v-snackbar>
   </div>
@@ -62,13 +62,13 @@ export default {
           await navigator.share({
             text: 'Карта, данные и график распространения коронавируса (COVID-19) '
           });
-          this.snackbar.text = 'Shared successfully.';
+          this.snackbar.text = 'Успешно делились.';
           this.snackbar.show = true;
         } catch (e) {
           // share cancelled
         }
       } else {
-        this.snackbar.text = 'Unsupported.';
+        this.snackbar.text = 'Не поддерживается.';
         this.snackbar.show = true;
       }
     }
